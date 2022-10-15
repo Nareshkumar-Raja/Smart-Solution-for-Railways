@@ -1,0 +1,56 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 float x,y,z,temp;\par
+void setup()\par
+\{\par
+  pinMode(8, INPUT);\par
+  pinMode(5, OUTPUT);\par
+  pinMode(6, OUTPUT);\par
+  pinMode(A5, INPUT); \par
+  pinMode(A4, INPUT);\par
+Serial.begin(9600);\par
+\}\par
+void loop()\par
+\{\par
+  x= digitalRead(8);\par
+  y= analogRead(A5);\par
+  z= analogRead(A4);\par
+  Serial.println(x);\par
+  Serial.println(y);\par
+  Serial.println(z);\par
+  temp = (double)z / 1024;       \par
+  temp = temp * 5;                 \par
+  temp = temp - 0.5;               \par
+  temp = temp * 100;               \par
+  if ( (x>0) )\par
+  \{\par
+    if ((y<550)&&(temp>30))\par
+    \{\par
+      digitalWrite(5, HIGH);\par
+      digitalWrite(6, HIGH);\par
+    \}\par
+    else if((y<550)&&(temp<30))\par
+    \{\par
+      digitalWrite(5, HIGH);\par
+      digitalWrite(6, LOW);\par
+    \}\par
+    else if((y>550)&&(temp>30))\par
+    \{\par
+      digitalWrite(5, LOW);\par
+      digitalWrite(6, HIGH);\par
+    \}\par
+    else if((y>550)&&(temp<30))\par
+    \{\par
+      digitalWrite(5, LOW);\par
+      digitalWrite(6, LOW);\par
+    \}\par
+  \}\par
+  else\par
+  \{\par
+    digitalWrite(5, LOW);\par
+    digitalWrite(6, LOW);\par
+  \}\par
+\}\par
+\par
+\par
+}
