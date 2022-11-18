@@ -7,11 +7,11 @@ import requests
 import json
 
 #Provide your IBM Watson Device Credentials
-organization = "0z828r"
-deviceType = "iotdevice"        #Credentials of Watson IoT sensor simulator
-deviceId = "1001"
+organization = "aynel8"
+deviceType = "iot_device"        #Credentials of Watson IoT sensor simulator
+deviceId = "4016"
 authMethod = "token"
-authToken = "prathyusha"
+authToken = "12345678"
 
 
 # Initialize the device client.
